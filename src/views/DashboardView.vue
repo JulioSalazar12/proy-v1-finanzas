@@ -48,6 +48,10 @@
     </v-form>
   </v-card>
 
+  <v-snackbar v-model="snackbar.show" :color="snackbar.color" timeout="3000">
+            {{ snackbar.message }}
+        </v-snackbar>
+
 
   </div>
 </template>
@@ -56,6 +60,12 @@
 export default {
   data() {
     return {
+      snackbar: {
+        show: false,
+        color: '', // Puedes personalizar el color según el tipo de mensaje (éxito, error, etc.)
+        message: '',
+      },
+
       idUser: '',
 
       sellPrice: 0,
@@ -94,7 +104,7 @@ export default {
       
       // Validación de campos
       if (!this.sellPrice || !this.paymentPlan) {
-        this.$snackbar.showSnackbar('Todos los campos deben completarse', 'error');
+        this.showSnackbar('Todos los campos deben completarse', 'error');
         return;
       }
 
@@ -134,13 +144,13 @@ export default {
           // Maneja la respuesta del servidor después de la solicitud POST
           console.log('Respuesta del servidor:', response.data);
           // Muestra un mensaje de éxito
-          this.$snackbar.showSnackbar('Solicitud enviada con éxito', 'success');
+          this.showSnackbar('Solicitud enviada con éxito', 'success');
         })
         .catch(error => {
           // Maneja el error después de la solicitud POST
           console.error('Error en la solicitud:', error);
           // Muestra un mensaje de error
-          this.$snackbar.showSnackbar('Error al enviar la solicitud', 'error');
+          this.showSnackbar('Error al enviar la solicitud', 'error');
         });
     },
     showSnackbar(message, color) {

@@ -98,9 +98,12 @@ export default {
       // Agrega más opciones según sea necesario
     };
   },
+  created(){
+    this.idUser = localStorage.getItem('idUser');
+
+  },
   methods: {
     submitLoanForm() {
-      this.idUser = localStorage.getItem('idUser');
       
       // Validación de campos
       if (!this.sellPrice || !this.paymentPlan) {

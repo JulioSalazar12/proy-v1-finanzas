@@ -47,7 +47,7 @@ export default {
       console.log('Username:', this.username);
       console.log('Password:', this.password);
 
-      this.$axios.post('/auth/sign-in', {
+      this.$axios.post('/users/auth/sign-in', {
         email: this.username,
         password: this.password,
       })

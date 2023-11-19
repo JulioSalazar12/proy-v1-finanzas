@@ -11,8 +11,15 @@ const routes = [
     path: '/',
     redirect: '/login'
   },
-  { path: '/login', component: LoginView },
-  { path: '/dashboard', component: DashboardView, meta: { requiresAuth: true } }
+  { path: '/login',
+    component: LoginView
+  },
+  { path: '/dashboard',
+    component: DashboardView,
+    meta: {
+      requiresAuth: true
+    }
+  }
 ]
 
 

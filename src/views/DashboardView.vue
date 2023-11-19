@@ -56,6 +56,8 @@
 export default {
   data() {
     return {
+      idUser: '',
+
       sellPrice: 0,
       paymentPlan: '',
       // Agrega más variables según sea necesario para otros campos
@@ -88,6 +90,8 @@ export default {
   },
   methods: {
     submitLoanForm() {
+      this.idUser = localStorage.getItem('idUser');
+      
       // Validación de campos
       if (!this.sellPrice || !this.paymentPlan) {
         this.$snackbar.showSnackbar('Todos los campos deben completarse', 'error');
@@ -125,7 +129,7 @@ export default {
       };
 
       // Realiza la solicitud POST con axios
-      this.$axios.post('/plans/', loanData)
+      this.$axios.post(`/plans/${this.idUser}`, loanData)
         .then(response => {
           // Maneja la respuesta del servidor después de la solicitud POST
           console.log('Respuesta del servidor:', response.data);

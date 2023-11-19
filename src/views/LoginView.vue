@@ -53,7 +53,9 @@ export default {
       })
         .then(response => {
           const token = response.data.token;
+          const idUser = response.data.id;
           localStorage.setItem('token', token);
+          localStorage.setItem('idUser', idUser);
           // Redirige a la página de dashboard o a la ruta deseada después del inicio de sesión
           this.$router.push('/dashboard');
 

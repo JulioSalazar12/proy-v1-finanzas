@@ -45,7 +45,10 @@ export default {
       console.log('Username:', this.username);
       console.log('Password:', this.password);
 
-      this.$axios.post('/login', { username: this.username, password: this.password })
+      this.$axios.post('/auth/sign-in', {
+        email: this.username,
+        password: this.password,
+      })
         .then(response => {
           const token = response.data.token;
           localStorage.setItem('token', token);

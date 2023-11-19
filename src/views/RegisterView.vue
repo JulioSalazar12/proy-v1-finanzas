@@ -39,8 +39,11 @@
   
         // Haz la llamada a la API para el registro
         this.$axios.post('/users/auth/sign-up', {
-          username: this.username,
+          email: this.username,
           password: this.password,
+          roles: [
+            'ROLE_CLIENT'
+          ]
         })
         .then(response => {
           // Maneja la respuesta del servidor después del registro

@@ -33,14 +33,14 @@ const router = new VueRouter({
   routes
 })
 
-// router.beforeEach((to, from, next) => {
-//   const isAuthenticated = localStorage.getItem('token');
-//   if (to.matched.some(record => record.meta.requiresAuth) && !isAuthenticated) {
-//     // Redirige al formulario de inicio de sesión si la ruta requiere autenticación y el usuario no está autenticado
-//     next('/login');
-//   } else {
-//     next();
-//   }
-// });
+router.beforeEach((to, from, next) => {
+  const isAuthenticated = localStorage.getItem('token');
+  if (to.matched.some(record => record.meta.requiresAuth) && !isAuthenticated) {
+    // Redirige al formulario de inicio de sesión si la ruta requiere autenticación y el usuario no está autenticado
+    next('/login');
+  } else {
+    next();
+  }
+});
 
 export default router

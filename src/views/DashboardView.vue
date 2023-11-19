@@ -125,7 +125,7 @@ export default {
       };
 
       // Realiza la solicitud POST con axios
-      this.$axios.post('/tu/endpoint/aqui', loanData)
+      this.$axios.post('/plans/', loanData)
         .then(response => {
           // Maneja la respuesta del servidor después de la solicitud POST
           console.log('Respuesta del servidor:', response.data);

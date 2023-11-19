@@ -143,6 +143,11 @@ export default {
           this.$snackbar.showSnackbar('Error al enviar la solicitud', 'error');
         });
     },
+    showSnackbar(message, color) {
+        this.snackbar.show = true;
+        this.snackbar.color = color;
+        this.snackbar.message = message;
+      },
   },
 };
 </script>

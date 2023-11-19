@@ -1,6 +1,6 @@
 <template>
-  <div class="sample-login d-flex align-center justify-center">
-    <v-card outlined width="500" class="pa-5 rounded-lg">
+  <div class="sample-login d-flex flex-column align-center justify-center">
+    <v-card outlined width="500" class="pa-5 rounded-lg mb-5">
       <v-card-title class="text-center">Login</v-card-title>
       <v-card-text>
         <v-form @submit.prevent="login">
@@ -19,6 +19,8 @@
         </v-form>
       </v-card-text>
     </v-card>
+
+    <router-link to="/register">Registrarse</router-link>
 
     <v-snackbar v-model="snackbar.show" :color="snackbar.color" timeout="3000">
       {{ snackbar.message }}

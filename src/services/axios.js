@@ -2,7 +2,7 @@
 import axios from 'axios';
 
 const instance = axios.create({
-  baseURL: 'https://CAMBIAR_AQUI/api/v1', // Coloca aquí la base URL de tu API
+  baseURL: 'http://localhost:8080/api/v1', // Coloca aquí la base URL de tu API
 });
 
 instance.interceptors.request.use(config => {

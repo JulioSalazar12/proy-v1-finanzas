@@ -50,108 +50,112 @@
       <v-btn class="elevation-0" v-if="!showForm" color="success" @click="showForm = !showForm">View Form</v-btn>
     </v-card>
     
-  <v-card width="1000" class="pa-5 mt-5 elevation-0">
-    <div class="d-flex justify-space-between mt-8" style="width: 100%;">
-      <span class="mt-3 font-weight-black">ITEMS:</span>
-      <v-btn class="elevation-0" color="indigo" dark @click="getAllItems" :loading="loadingItems">Refresh</v-btn>
-    </div>
-  
-    <div v-if="itemsList!=[]" class="d-flex mt-3 flex-wrap justify-center" style="gap: 10px;">
-      <v-card :loading="loadingItemSelect.id == item.id && loadingItemSelect.load == true" @click="setDialog(item)" v-for="(item, index) in itemsList" :key="index" outlined class="px-4 pb-4 d-flex flex-column align-start" width="350">
-        <h3 class="pt-4">SAMPLE ID: 000-{{ item.id }}</h3>
-        <p class="mb-0">sellPrice: {{item.sellPrice}}</p>
-        <p class="mb-0">paymentPlan: {{item.paymentPlan}}</p>
-        <p class="mb-0">interestType: {{item.interestType}}</p>
-        <p class="mb-0">capitalizationPeriod: {{item.capitalizationPeriod}}</p>
-      </v-card>
-  
-    </div>
+    <v-card width="1000" class="pa-5 mt-5 elevation-0">
+      <div class="d-flex justify-space-between mt-8" style="width: 100%;">
+        <span class="mt-3 font-weight-black">ITEMS:</span>
+        <v-btn class="elevation-0" color="indigo" dark @click="getAllItems" :loading="loadingItems">Refresh</v-btn>
+      </div>
     
-  </v-card>
-
-  <v-dialog v-model="showdialog" width="700">
-    <v-card class="pa-4 d-flex flex-column align-start">
-      <h3 class="mb-3">SAMPLE ID: 000-{{ itemSelect.id }}</h3>
-      <v-row v-if="showFirst" style="width: 100%;">
-          <v-col cols="12" md="6">
-            <v-text-field outlined dense hide-details class="mb-3" v-model="itemSelect.sellPrice" label="Sell Price" required disabled type="number"></v-text-field>
-            
-            <v-text-field outlined dense hide-details class="mb-3" v-model="itemSelect.paymentPlan" label="Payment Plan" required disabled></v-text-field>
-
-            <v-text-field outlined dense hide-details class="mb-3" v-model="itemSelect.initialShare" label="initialShare" required disabled type="number"></v-text-field>
-            <v-text-field outlined dense hide-details class="mb-3" v-model="itemSelect.finalShare" label="finalShare" disabled required type="number"></v-text-field>
-            <v-text-field outlined dense hide-details class="mb-3" v-model="itemSelect.interestRate" label="interestRate" required disabled type="number"></v-text-field>
+      <div v-if="itemsList!=[]" class="d-flex mt-3 flex-wrap justify-center" style="gap: 10px;">
+        <v-card :loading="loadingItemSelect.id == item.id && loadingItemSelect.load == true" @click="setDialog(item)" v-for="(item, index) in itemsList" :key="index" outlined class="px-4 pb-4 d-flex flex-column align-start" width="350">
+          <h3 class="pt-4">SAMPLE ID: 000-{{ item.id }}</h3>
+          <p class="mb-0">sellPrice: {{item.sellPrice}}</p>
+          <p class="mb-0">paymentPlan: {{item.paymentPlan}}</p>
+          <p class="mb-0">interestType: {{item.interestType}}</p>
+          <p class="mb-0">capitalizationPeriod: {{item.capitalizationPeriod}}</p>
+        </v-card>
+    
+      </div>
       
-            <v-text-field outlined dense hide-details class="mb-3" v-model="itemSelect.interestType" label="interestType" required disabled></v-text-field>
-            <v-text-field outlined dense hide-details class="mb-3" v-model="itemSelect.capitalizationPeriod" label="capitalizationPeriod" required disabled></v-text-field>
-
-            <v-text-field outlined dense hide-details class="mb-3" v-model="itemSelect.frequencyPayment" label="frequencyPayment" required disabled type="number"></v-text-field>
-            <v-text-field outlined dense hide-details class="mb-3" v-model="itemSelect.daysPerYear" label="daysPerYear" required disabled type="number"></v-text-field>
-            <v-text-field outlined dense hide-details class="mb-3" v-model="itemSelect.notarialCost" label="notarialCost" required disabled type="number"></v-text-field>
-            <v-text-field outlined dense hide-details class="mb-3" v-model="itemSelect.registerCost" label="registerCost" required disabled type="number"></v-text-field>
-          </v-col>
-    
-          <!-- Segunda columna -->
-          <v-col cols="12" md="6">
-            
-            <v-text-field outlined dense hide-details class="mb-3" v-model="itemSelect.tasacion" label="tasacion" required disabled type="number"></v-text-field>
-            <v-text-field outlined dense hide-details class="mb-3" v-model="itemSelect.studyCommission" label="studyCommission" required disabled type="number"></v-text-field>
-            <v-text-field outlined dense hide-details class="mb-3" v-model="itemSelect.activationCommission" label="activationCommission" required disabled type="number"></v-text-field>
-            <v-text-field outlined dense hide-details class="mb-3" v-model="itemSelect.ports" label="ports" required disabled type="number"></v-text-field>
-            <v-text-field outlined dense hide-details class="mb-3" v-model="itemSelect.administrativeWaste" label="administrativeWaste" required disabled type="number"></v-text-field>
-            <v-text-field outlined dense hide-details class="mb-3" v-model="itemSelect.insuranceD" label="insuranceD" required disabled type="number"></v-text-field>
-            <v-text-field outlined dense hide-details class="mb-3" v-model="itemSelect.insuranceRisk" label="insuranceRisk" required disabled type="number"></v-text-field>
-            <v-text-field outlined dense hide-details class="mb-3" v-model="itemSelect.discountRate" label="discountRate" required disabled type="number"></v-text-field>
-            <v-text-field outlined dense hide-details class="mb-3" v-model="itemSelect.nyears" label="nyears" disabled required type="number"></v-text-field>
-            <v-text-field outlined dense hide-details class="mb-3" v-model="itemSelect.gps" label="gps" required disabled type="number"></v-text-field>
-          </v-col>
-
-      </v-row>
-      <v-row v-else style="width: 100%;">
-          <v-col cols="12" md="6">
-            <v-text-field outlined dense hide-details class="mb-3" v-model="itemResponse.numSharePerYear" label="numSharePerYear" required disabled type="number"></v-text-field>
-            <v-text-field outlined dense hide-details class="mb-3" v-model="itemResponse.totalSharePerYear" label="totalSharePerYear" required disabled type="number"></v-text-field>
-            <v-text-field outlined dense hide-details class="mb-3" v-model="itemResponse.initialShare" label="initialShare" required disabled type="number"></v-text-field>
-            <v-text-field outlined dense hide-details class="mb-3" v-model="itemResponse.finalShare" label="finalShare" required disabled type="number"></v-text-field>
-            <v-text-field outlined dense hide-details class="mb-3" v-model="itemResponse.loanAmount" label="loanAmount" required disabled type="number"></v-text-field>
-            <v-text-field outlined dense hide-details class="mb-3" v-model="itemResponse.finaciarCuotas" label="finaciarCuotas" required disabled type="number"></v-text-field>
-            <v-text-field outlined dense hide-details class="mb-3" v-model="itemResponse.seguroDesgrav" label="seguroDesgrav" required disabled type="number"></v-text-field>
-            <v-text-field outlined dense hide-details class="mb-3" v-model="itemResponse.seguroRiesgo" label="seguroRiesgo" required disabled type="number"></v-text-field>
-            <v-text-field outlined dense hide-details class="mb-3" v-model="itemResponse.interests" label="interests" required disabled type="number"></v-text-field>
-            <v-text-field outlined dense hide-details class="mb-3" v-model="itemResponse.amortizacion" label="amortizacion" required disabled type="number"></v-text-field>
-          </v-col>
-          
-          <!-- Segunda columna -->
-          <v-col cols="12" md="6">
-            <v-text-field outlined dense hide-details class="mb-3" v-model="itemResponse.desgravamen" label="desgravamen" required disabled type="number"></v-text-field>
-            <v-text-field outlined dense hide-details class="mb-3" v-model="itemResponse.seguroTodoRiesgo" label="seguroTodoRiesgo" required disabled type="number"></v-text-field>
-            <v-text-field outlined dense hide-details class="mb-3" v-model="itemResponse.ports" label="ports" required disabled type="number"></v-text-field>
-            <v-text-field outlined dense hide-details class="mb-3" v-model="itemResponse.admGastos" label="admGastos" required disabled type="number"></v-text-field>
-            <v-text-field outlined dense hide-details class="mb-3" v-model="itemResponse.discountRate" label="discountRate" required disabled type="number"></v-text-field>
-            <v-text-field outlined dense hide-details class="mb-3" v-model="itemResponse.tir" label="tir" required disabled type="number"></v-text-field>
-            <v-text-field outlined dense hide-details class="mb-3" v-model="itemResponse.tcea" label="tcea" required disabled type="number"></v-text-field>
-            <v-text-field outlined dense hide-details class="mb-3" v-model="itemResponse.van" label="van" required disabled type="number"></v-text-field>
-            <v-text-field outlined dense hide-details class="mb-3" v-model="itemResponse.tea" label="tea" required disabled type="number"></v-text-field>
-            <v-text-field outlined dense hide-details class="mb-3" v-model="itemResponse.tem" label="tem" required disabled type="number"></v-text-field>
-            <v-text-field outlined dense hide-details class="mb-3" v-model="itemResponse.gps" label="gps" required disabled type="number"></v-text-field>
-          </v-col>
-
-      </v-row>
-      <v-row  class="pt-0 mt-0">
-        <v-col cols="12" md="12">
-          <v-btn class="elevation-0" color="primary" @click="showFirst = !showFirst">{{showFirst?'Ver':'Ocultar'}} Resultados</v-btn>
-        </v-col>
-      </v-row>
-      <!-- <p class="mb-0">sellPrice: {{itemSelect.sellPrice}}</p>
-      <p class="mb-0">paymentPlan: {{itemSelect.paymentPlan}}</p>
-      <p class="mb-0">interestType: {{itemSelect.interestType}}</p>
-      <p class="mb-0">capitalizationPeriod: {{itemSelect.capitalizationPeriod}}</p> -->
     </v-card>
-  </v-dialog>
 
-  <v-snackbar v-model="snackbar.show" :color="snackbar.color" timeout="3000">
-      {{ snackbar.message }}
-  </v-snackbar>
+    <v-dialog v-model="showdialog" width="700">
+      <v-card class="pa-4 d-flex flex-column align-start">
+        <h3 class="mb-3">SAMPLE ID: 000-{{ itemSelect.id }}</h3>
+        <v-row v-if="showFirst" style="width: 100%;">
+            <v-col cols="12" md="6">
+              <v-text-field outlined dense hide-details class="mb-3" v-model="itemSelect.sellPrice" label="Sell Price" required disabled type="number"></v-text-field>
+              
+              <v-text-field outlined dense hide-details class="mb-3" v-model="itemSelect.paymentPlan" label="Payment Plan" required disabled></v-text-field>
+
+              <v-text-field outlined dense hide-details class="mb-3" v-model="itemSelect.initialShare" label="initialShare" required disabled type="number"></v-text-field>
+              <v-text-field outlined dense hide-details class="mb-3" v-model="itemSelect.finalShare" label="finalShare" disabled required type="number"></v-text-field>
+              <v-text-field outlined dense hide-details class="mb-3" v-model="itemSelect.interestRate" label="interestRate" required disabled type="number"></v-text-field>
+        
+              <v-text-field outlined dense hide-details class="mb-3" v-model="itemSelect.interestType" label="interestType" required disabled></v-text-field>
+              <v-text-field outlined dense hide-details class="mb-3" v-model="itemSelect.capitalizationPeriod" label="capitalizationPeriod" required disabled></v-text-field>
+
+              <v-text-field outlined dense hide-details class="mb-3" v-model="itemSelect.frequencyPayment" label="frequencyPayment" required disabled type="number"></v-text-field>
+              <v-text-field outlined dense hide-details class="mb-3" v-model="itemSelect.daysPerYear" label="daysPerYear" required disabled type="number"></v-text-field>
+              <v-text-field outlined dense hide-details class="mb-3" v-model="itemSelect.notarialCost" label="notarialCost" required disabled type="number"></v-text-field>
+              <v-text-field outlined dense hide-details class="mb-3" v-model="itemSelect.registerCost" label="registerCost" required disabled type="number"></v-text-field>
+            </v-col>
+      
+            <!-- Segunda columna -->
+            <v-col cols="12" md="6">
+              
+              <v-text-field outlined dense hide-details class="mb-3" v-model="itemSelect.tasacion" label="tasacion" required disabled type="number"></v-text-field>
+              <v-text-field outlined dense hide-details class="mb-3" v-model="itemSelect.studyCommission" label="studyCommission" required disabled type="number"></v-text-field>
+              <v-text-field outlined dense hide-details class="mb-3" v-model="itemSelect.activationCommission" label="activationCommission" required disabled type="number"></v-text-field>
+              <v-text-field outlined dense hide-details class="mb-3" v-model="itemSelect.ports" label="ports" required disabled type="number"></v-text-field>
+              <v-text-field outlined dense hide-details class="mb-3" v-model="itemSelect.administrativeWaste" label="administrativeWaste" required disabled type="number"></v-text-field>
+              <v-text-field outlined dense hide-details class="mb-3" v-model="itemSelect.insuranceD" label="insuranceD" required disabled type="number"></v-text-field>
+              <v-text-field outlined dense hide-details class="mb-3" v-model="itemSelect.insuranceRisk" label="insuranceRisk" required disabled type="number"></v-text-field>
+              <v-text-field outlined dense hide-details class="mb-3" v-model="itemSelect.discountRate" label="discountRate" required disabled type="number"></v-text-field>
+              <v-text-field outlined dense hide-details class="mb-3" v-model="itemSelect.nyears" label="nyears" disabled required type="number"></v-text-field>
+              <v-text-field outlined dense hide-details class="mb-3" v-model="itemSelect.gps" label="gps" required disabled type="number"></v-text-field>
+            </v-col>
+
+        </v-row>
+        <v-row v-else style="width: 100%;">
+            <v-col cols="12" md="6">
+              <v-text-field outlined dense hide-details class="mb-3" v-model="itemResponse.numSharePerYear" label="numSharePerYear" required disabled type="number"></v-text-field>
+              <v-text-field outlined dense hide-details class="mb-3" v-model="itemResponse.totalSharePerYear" label="totalSharePerYear" required disabled type="number"></v-text-field>
+              <v-text-field outlined dense hide-details class="mb-3" v-model="itemResponse.initialShare" label="initialShare" required disabled type="number"></v-text-field>
+              <v-text-field outlined dense hide-details class="mb-3" v-model="itemResponse.finalShare" label="finalShare" required disabled type="number"></v-text-field>
+              <v-text-field outlined dense hide-details class="mb-3" v-model="itemResponse.loanAmount" label="loanAmount" required disabled type="number"></v-text-field>
+              <v-text-field outlined dense hide-details class="mb-3" v-model="itemResponse.finaciarCuotas" label="finaciarCuotas" required disabled type="number"></v-text-field>
+              <v-text-field outlined dense hide-details class="mb-3" v-model="itemResponse.seguroDesgrav" label="seguroDesgrav" required disabled type="number"></v-text-field>
+              <v-text-field outlined dense hide-details class="mb-3" v-model="itemResponse.seguroRiesgo" label="seguroRiesgo" required disabled type="number"></v-text-field>
+              <v-text-field outlined dense hide-details class="mb-3" v-model="itemResponse.interests" label="interests" required disabled type="number"></v-text-field>
+              <v-text-field outlined dense hide-details class="mb-3" v-model="itemResponse.amortizacion" label="amortizacion" required disabled type="number"></v-text-field>
+            </v-col>
+            
+            <!-- Segunda columna -->
+            <v-col cols="12" md="6">
+              <v-text-field outlined dense hide-details class="mb-3" v-model="itemResponse.desgravamen" label="desgravamen" required disabled type="number"></v-text-field>
+              <v-text-field outlined dense hide-details class="mb-3" v-model="itemResponse.seguroTodoRiesgo" label="seguroTodoRiesgo" required disabled type="number"></v-text-field>
+              <v-text-field outlined dense hide-details class="mb-3" v-model="itemResponse.ports" label="ports" required disabled type="number"></v-text-field>
+              <v-text-field outlined dense hide-details class="mb-3" v-model="itemResponse.admGastos" label="admGastos" required disabled type="number"></v-text-field>
+              <v-text-field outlined dense hide-details class="mb-3" v-model="itemResponse.discountRate" label="discountRate" required disabled type="number"></v-text-field>
+              <v-text-field outlined dense hide-details class="mb-3" v-model="itemResponse.tir" label="tir" required disabled type="number"></v-text-field>
+              <v-text-field outlined dense hide-details class="mb-3" v-model="itemResponse.tcea" label="tcea" required disabled type="number"></v-text-field>
+              <v-text-field outlined dense hide-details class="mb-3" v-model="itemResponse.van" label="van" required disabled type="number"></v-text-field>
+              <v-text-field outlined dense hide-details class="mb-3" v-model="itemResponse.tea" label="tea" required disabled type="number"></v-text-field>
+              <v-text-field outlined dense hide-details class="mb-3" v-model="itemResponse.tem" label="tem" required disabled type="number"></v-text-field>
+              <v-text-field outlined dense hide-details class="mb-3" v-model="itemResponse.gps" label="gps" required disabled type="number"></v-text-field>
+            </v-col>
+
+        </v-row>
+        <v-row  class="pt-0 mt-0">
+          <v-col cols="12" md="12">
+            <v-btn class="elevation-0" color="primary" @click="showFirst = !showFirst">{{showFirst?'Ver':'Ocultar'}} Resultados</v-btn>
+          </v-col>
+        </v-row>
+        <!-- <p class="mb-0">sellPrice: {{itemSelect.sellPrice}}</p>
+        <p class="mb-0">paymentPlan: {{itemSelect.paymentPlan}}</p>
+        <p class="mb-0">interestType: {{itemSelect.interestType}}</p>
+        <p class="mb-0">capitalizationPeriod: {{itemSelect.capitalizationPeriod}}</p> -->
+      </v-card>
+    </v-dialog>
+
+    <v-snackbar v-model="snackbar.show" :color="snackbar.color" timeout="3000">
+        {{ snackbar.message }}
+    </v-snackbar>
+
+    <router-link @click.native="logout" to="#" class="logout-link">
+      Logout
+    </router-link>
 
 
   </div>
@@ -220,6 +224,10 @@ export default {
 
   },
   methods: {
+    logout() {
+      localStorage.removeItem('token');
+      this.$router.push('/login');
+    },
     async setDialog(item){
       this.itemSelect = item;
       this.loadingItemSelect.id = item.id;

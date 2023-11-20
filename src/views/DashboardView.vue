@@ -319,7 +319,7 @@ export default {
         
     },
     getResponseItem(numberId){
-      this.$axios.get(`/plans_resuls/users/${numberId}`)
+      this.$axios.get(`/plan_resuls/users/${numberId}`)
         .then(response => {
             // Maneja la respuesta del servidor después de la solicitud POST
             console.log('Respuesta del servidor:', response.data);

@@ -1,6 +1,6 @@
 <template>
   <div class="pa-5 d-flex flex-column align-center">
-    <h1>Dashboard VIew</h1>
+    <h1>Dashboard View</h1>
     <p>Bienvenido al panel de control</p>
 
     <v-card width="1000" class="pa-5 mt-5" outlined>
@@ -58,7 +58,7 @@
     
       <div v-if="itemsList!=[]" class="d-flex mt-3 flex-wrap justify-center" style="gap: 10px;">
         <v-card :loading="loadingItemSelect.id == item.id && loadingItemSelect.load == true" @click="setDialog(item)" v-for="(item, index) in itemsList" :key="index" outlined class="px-4 pb-4 d-flex flex-column align-start" width="350">
-          <h3 class="pt-4">SAMPLE ID: 000-{{ item.id }}</h3>
+          <h3 class="pt-4">Plan ID: 000-{{ item.id }}</h3>
           <p class="mb-0">sellPrice: {{item.sellPrice}}</p>
           <p class="mb-0">paymentPlan: {{item.paymentPlan}}</p>
           <p class="mb-0">interestType: {{item.interestType}}</p>
@@ -71,7 +71,7 @@
 
     <v-dialog v-model="showdialog" width="700">
       <v-card class="pa-4 d-flex flex-column align-start">
-        <h3 class="mb-3">SAMPLE ID: 000-{{ itemSelect.id }}</h3>
+        <h3 class="mb-3">{{showFirst?'Datos de ':'Resultados de'}} Plan ID: 000-{{ itemSelect.id }}</h3>
         <v-row v-if="showFirst" style="width: 100%;">
             <v-col cols="12" md="6">
               <v-text-field outlined dense hide-details class="mb-3" v-model="itemSelect.sellPrice" label="Sell Price" required disabled type="number"></v-text-field>
@@ -142,10 +142,6 @@
             <v-btn class="elevation-0" color="primary" @click="showFirst = !showFirst">{{showFirst?'Ver':'Ocultar'}} Resultados</v-btn>
           </v-col>
         </v-row>
-        <!-- <p class="mb-0">sellPrice: {{itemSelect.sellPrice}}</p>
-        <p class="mb-0">paymentPlan: {{itemSelect.paymentPlan}}</p>
-        <p class="mb-0">interestType: {{itemSelect.interestType}}</p>
-        <p class="mb-0">capitalizationPeriod: {{itemSelect.capitalizationPeriod}}</p> -->
       </v-card>
     </v-dialog>
 
@@ -319,7 +315,7 @@ export default {
         
     },
     getResponseItem(numberId){
-      this.$axios.get(`/plan_resuls/users/${numberId}`)
+      this.$axios.get(`/plan_results/users/${numberId}`)
         .then(response => {
             // Maneja la respuesta del servidor después de la solicitud POST
             console.log('Respuesta del servidor:', response.data);

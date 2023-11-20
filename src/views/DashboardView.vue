@@ -212,42 +212,7 @@ export default {
       // Agrega más opciones según sea necesario
 
 
-      itemsList: [
-    {
-        id: 1,
-        sellPrice: 0.0,
-        paymentPlan: "PLAN_36",
-        initialShare: 0.0,
-        finalShare: 0.4,
-        interestRate: 0.0,
-        interestType: "TEA",
-        capitalizationPeriod: "DIARIA",
-        frequencyPayment: 0.0,
-        daysPerYear: 0.0,
-        notarialCost: 0.0,
-        registerCost: 0.0,
-        tasacion: 0.0,
-        studyCommission: 0.0,
-        activationCommission: 0.0,
-        ports: 0.0,
-        administrativeWaste: 0.0,
-        insuranceD: 0.0,
-        insuranceRisk: 0.0,
-        discountRate: 0.0,
-        user: {
-            id: 1,
-            email: "prueba@gmail.com",
-            roles: [
-                {
-                    id: 1,
-                    name: "ROLE_CLIENT"
-                }
-            ]
-        },
-        nyears: 3.0,
-        gps: 0.0
-    }
-],
+      itemsList: [],
     };
   },
   created(){

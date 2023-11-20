@@ -8,34 +8,34 @@
         <!-- Primera columna -->
         <v-row>
           <v-col cols="12" md="6">
-            <v-text-field outlined dense hide-details class="mb-3" v-model="sellPrice" label="Sell Price" required type="number"></v-text-field>
-            <v-select outlined dense hide-details class="mb-3" v-model="paymentPlan" :items="paymentPlanOptions" label="Payment Plan" required></v-select>
+            <v-text-field outlined dense hide-details class="mb-3" v-model="sellPrice" label="Precio de Venta del Activo" required type="number"></v-text-field>
+            <v-select outlined dense hide-details class="mb-3" v-model="paymentPlan" :items="paymentPlanOptions" label="Tipo de plan de pagos" required></v-select>
             <!-- Agrega más campos aquí según sea necesario -->
-            <v-text-field outlined dense hide-details class="mb-3" v-model="initialShare" label="initialShare" required type="number"></v-text-field>
-            <v-text-field outlined dense hide-details class="mb-3" v-model="finalShare" label="finalShare" disabled required type="number"></v-text-field>
-            <v-text-field outlined dense hide-details class="mb-3" v-model="interestRate" label="interestRate" required type="number"></v-text-field>
+            <v-text-field outlined dense hide-details class="mb-3" v-model="initialShare" label="% Cuota Inicial" required type="number"></v-text-field>
+            <v-text-field outlined dense hide-details class="mb-3" v-model="finalShare" label="% Cuota final" disabled required type="number"></v-text-field>
+            <v-text-field outlined dense hide-details class="mb-3" v-model="nyears" label="Nº de Años" disabled required type="number"></v-text-field>
+            <v-text-field outlined dense hide-details class="mb-3" v-model="interestRate" label="Tasa de interés" required type="number"></v-text-field>
       
-            <v-select outlined dense hide-details class="mb-3" v-model="interestType" :items="interestTypOptions" label="interestType" required></v-select>
-            <v-select outlined dense hide-details class="mb-3" v-model="capitalizationPeriod" :items="capitalizatOptions" label="capitalizationPeriod" required></v-select>
-            <v-text-field outlined dense hide-details class="mb-3" v-model="frequencyPayment" label="frequencyPayment" required type="number"></v-text-field>
-            <v-text-field outlined dense hide-details class="mb-3" v-model="daysPerYear" label="daysPerYear" required type="number"></v-text-field>
-            <v-text-field outlined dense hide-details class="mb-3" v-model="notarialCost" label="notarialCost" required type="number"></v-text-field>
-            <v-text-field outlined dense hide-details class="mb-3" v-model="registerCost" label="registerCost" required type="number"></v-text-field>
+            <v-select outlined dense hide-details class="mb-3" v-model="interestType" :items="interestTypOptions" label="Tipo de tasa de interés" required></v-select>
+            <v-select outlined dense hide-details class="mb-3" v-model="capitalizationPeriod" :items="capitalizatOptions" label="Periodo de capitalización" required></v-select>
+            <v-text-field outlined dense hide-details class="mb-3" v-model="frequencyPayment" label="Frecuencia de pago" required type="number"></v-text-field>
+            <v-text-field outlined dense hide-details class="mb-3" v-model="daysPerYear" label="Nº de días por año" required type="number"></v-text-field>
+            <v-text-field outlined dense hide-details class="mb-3" v-model="notarialCost" label="Costes Notariales" required type="number"></v-text-field>
           </v-col>
     
           <!-- Segunda columna -->
           <v-col cols="12" md="6">
-            
-            <v-text-field outlined dense hide-details class="mb-3" v-model="tasacion" label="tasacion" required type="number"></v-text-field>
-            <v-text-field outlined dense hide-details class="mb-3" v-model="studyCommission" label="studyCommission" required type="number"></v-text-field>
-            <v-text-field outlined dense hide-details class="mb-3" v-model="activationCommission" label="activationCommission" required type="number"></v-text-field>
-            <v-text-field outlined dense hide-details class="mb-3" v-model="ports" label="ports" required type="number"></v-text-field>
-            <v-text-field outlined dense hide-details class="mb-3" v-model="administrativeWaste" label="administrativeWaste" required type="number"></v-text-field>
-            <v-text-field outlined dense hide-details class="mb-3" v-model="insuranceD" label="insuranceD" required type="number"></v-text-field>
-            <v-text-field outlined dense hide-details class="mb-3" v-model="insuranceRisk" label="insuranceRisk" required type="number"></v-text-field>
-            <v-text-field outlined dense hide-details class="mb-3" v-model="discountRate" label="discountRate" required type="number"></v-text-field>
-            <v-text-field outlined dense hide-details class="mb-3" v-model="nyears" label="nyears" disabled required type="number"></v-text-field>
-            <v-text-field outlined dense hide-details class="mb-3" v-model="gps" label="gps" required type="number"></v-text-field>
+            <v-text-field outlined dense hide-details class="mb-3" v-model="registerCost" label="Costes Registrales" required type="number"></v-text-field>
+            <v-text-field outlined dense hide-details class="mb-3" v-model="tasacion" label="Tasación" required type="number"></v-text-field>
+            <v-text-field outlined dense hide-details class="mb-3" v-model="studyCommission" label="Comisión de estudio" required type="number"></v-text-field>
+            <v-text-field outlined dense hide-details class="mb-3" v-model="activationCommission" label="Comisión activación" required type="number"></v-text-field>
+            <v-text-field outlined dense hide-details class="mb-3" v-model="gps" label="GPS" required type="number"></v-text-field>
+            <v-text-field outlined dense hide-details class="mb-3" v-model="ports" label="Portes" required type="number"></v-text-field>
+            <v-text-field outlined dense hide-details class="mb-3" v-model="administrativeWaste" label="Gastos de Administración" required type="number"></v-text-field>
+            <v-text-field outlined dense hide-details class="mb-3" v-model="insuranceD" label="% de Seguro desgravamen" required type="number"></v-text-field>
+            <v-text-field outlined dense hide-details class="mb-3" v-model="insuranceRisk" label="% de Seguro riesgo" required type="number"></v-text-field>
+            <v-text-field outlined dense hide-details class="mb-3" v-model="discountRate" label="Tasa de descuento" required type="number"></v-text-field>
+
           </v-col>
 
         </v-row>
@@ -74,66 +74,66 @@
         <h3 class="mb-3">{{showFirst?'Datos de ':'Resultados de'}} Plan ID: 000-{{ itemSelect.id }}</h3>
         <v-row v-if="showFirst" style="width: 100%;">
             <v-col cols="12" md="6">
-              <v-text-field outlined dense hide-details class="mb-3" v-model="itemSelect.sellPrice" label="Sell Price" required disabled type="number"></v-text-field>
+              <v-text-field outlined dense hide-details class="mb-3" v-model="itemSelect.sellPrice" label="Precio de Venta del Activo" required disabled type="number"></v-text-field>
               
-              <v-text-field outlined dense hide-details class="mb-3" v-model="itemSelect.paymentPlan" label="Payment Plan" required disabled></v-text-field>
+              <v-text-field outlined dense hide-details class="mb-3" v-model="itemSelect.paymentPlan" label="Tipo de plan de pagos" required disabled></v-text-field>
 
-              <v-text-field outlined dense hide-details class="mb-3" v-model="itemSelect.initialShare" label="initialShare" required disabled type="number"></v-text-field>
-              <v-text-field outlined dense hide-details class="mb-3" v-model="itemSelect.finalShare" label="finalShare" disabled required type="number"></v-text-field>
-              <v-text-field outlined dense hide-details class="mb-3" v-model="itemSelect.interestRate" label="interestRate" required disabled type="number"></v-text-field>
+              <v-text-field outlined dense hide-details class="mb-3" v-model="itemSelect.initialShare" label="% Cuota Inicial" required disabled type="number"></v-text-field>
+              <v-text-field outlined dense hide-details class="mb-3" v-model="itemSelect.finalShare" label="% Cuota final" disabled required type="number"></v-text-field>
+              <v-text-field outlined dense hide-details class="mb-3" v-model="itemSelect.nyears" label="Nº de Años" disabled required type="number"></v-text-field>
+              <v-text-field outlined dense hide-details class="mb-3" v-model="itemSelect.interestRate" label="Tasa de interés" required disabled type="number"></v-text-field>
         
-              <v-text-field outlined dense hide-details class="mb-3" v-model="itemSelect.interestType" label="interestType" required disabled></v-text-field>
-              <v-text-field outlined dense hide-details class="mb-3" v-model="itemSelect.capitalizationPeriod" label="capitalizationPeriod" required disabled></v-text-field>
+              <v-text-field outlined dense hide-details class="mb-3" v-model="itemSelect.interestType" label="Tipo de tasa de interés" required disabled></v-text-field>
+              <v-text-field outlined dense hide-details class="mb-3" v-model="itemSelect.capitalizationPeriod" label="Periodo de capitalización" required disabled></v-text-field>
 
-              <v-text-field outlined dense hide-details class="mb-3" v-model="itemSelect.frequencyPayment" label="frequencyPayment" required disabled type="number"></v-text-field>
-              <v-text-field outlined dense hide-details class="mb-3" v-model="itemSelect.daysPerYear" label="daysPerYear" required disabled type="number"></v-text-field>
-              <v-text-field outlined dense hide-details class="mb-3" v-model="itemSelect.notarialCost" label="notarialCost" required disabled type="number"></v-text-field>
-              <v-text-field outlined dense hide-details class="mb-3" v-model="itemSelect.registerCost" label="registerCost" required disabled type="number"></v-text-field>
+              <v-text-field outlined dense hide-details class="mb-3" v-model="itemSelect.frequencyPayment" label="Frecuencia de pago" required disabled type="number"></v-text-field>
+              <v-text-field outlined dense hide-details class="mb-3" v-model="itemSelect.daysPerYear" label="Nº de días por año" required disabled type="number"></v-text-field>
+              <v-text-field outlined dense hide-details class="mb-3" v-model="itemSelect.notarialCost" label="Costes Notariales" required disabled type="number"></v-text-field>
             </v-col>
       
             <!-- Segunda columna -->
             <v-col cols="12" md="6">
-              
-              <v-text-field outlined dense hide-details class="mb-3" v-model="itemSelect.tasacion" label="tasacion" required disabled type="number"></v-text-field>
-              <v-text-field outlined dense hide-details class="mb-3" v-model="itemSelect.studyCommission" label="studyCommission" required disabled type="number"></v-text-field>
-              <v-text-field outlined dense hide-details class="mb-3" v-model="itemSelect.activationCommission" label="activationCommission" required disabled type="number"></v-text-field>
-              <v-text-field outlined dense hide-details class="mb-3" v-model="itemSelect.ports" label="ports" required disabled type="number"></v-text-field>
-              <v-text-field outlined dense hide-details class="mb-3" v-model="itemSelect.administrativeWaste" label="administrativeWaste" required disabled type="number"></v-text-field>
-              <v-text-field outlined dense hide-details class="mb-3" v-model="itemSelect.insuranceD" label="insuranceD" required disabled type="number"></v-text-field>
-              <v-text-field outlined dense hide-details class="mb-3" v-model="itemSelect.insuranceRisk" label="insuranceRisk" required disabled type="number"></v-text-field>
-              <v-text-field outlined dense hide-details class="mb-3" v-model="itemSelect.discountRate" label="discountRate" required disabled type="number"></v-text-field>
-              <v-text-field outlined dense hide-details class="mb-3" v-model="itemSelect.nyears" label="nyears" disabled required type="number"></v-text-field>
-              <v-text-field outlined dense hide-details class="mb-3" v-model="itemSelect.gps" label="gps" required disabled type="number"></v-text-field>
+              <v-text-field outlined dense hide-details class="mb-3" v-model="itemSelect.registerCost" label="Costes Registrales" required disabled type="number"></v-text-field>
+              <v-text-field outlined dense hide-details class="mb-3" v-model="itemSelect.tasacion" label="Tasación" required disabled type="number"></v-text-field>
+              <v-text-field outlined dense hide-details class="mb-3" v-model="itemSelect.studyCommission" label="Comisión de estudio" required disabled type="number"></v-text-field>
+              <v-text-field outlined dense hide-details class="mb-3" v-model="itemSelect.activationCommission" label="Comisión activación" required disabled type="number"></v-text-field>
+              <v-text-field outlined dense hide-details class="mb-3" v-model="itemSelect.gps" label="GPS" required disabled type="number"></v-text-field>
+              <v-text-field outlined dense hide-details class="mb-3" v-model="itemSelect.ports" label="Portes" required disabled type="number"></v-text-field>
+              <v-text-field outlined dense hide-details class="mb-3" v-model="itemSelect.administrativeWaste" label="Gastos de Administración" required disabled type="number"></v-text-field>
+              <v-text-field outlined dense hide-details class="mb-3" v-model="itemSelect.insuranceD" label="% de Seguro desgravamen" required disabled type="number"></v-text-field>
+              <v-text-field outlined dense hide-details class="mb-3" v-model="itemSelect.insuranceRisk" label="% de Seguro riesgo" required disabled type="number"></v-text-field>
+              <v-text-field outlined dense hide-details class="mb-3" v-model="itemSelect.discountRate" label="Tasa de descuento" required disabled type="number"></v-text-field>
             </v-col>
 
         </v-row>
         <v-row v-else style="width: 100%;">
             <v-col cols="12" md="6">
-              <v-text-field outlined dense hide-details class="mb-3" v-model="itemResponse.numSharePerYear" label="numSharePerYear" required disabled type="number"></v-text-field>
-              <v-text-field outlined dense hide-details class="mb-3" v-model="itemResponse.totalSharePerYear" label="totalSharePerYear" required disabled type="number"></v-text-field>
-              <v-text-field outlined dense hide-details class="mb-3" v-model="itemResponse.initialShare" label="initialShare" required disabled type="number"></v-text-field>
-              <v-text-field outlined dense hide-details class="mb-3" v-model="itemResponse.finalShare" label="finalShare" required disabled type="number"></v-text-field>
-              <v-text-field outlined dense hide-details class="mb-3" v-model="itemResponse.loanAmount" label="loanAmount" required disabled type="number"></v-text-field>
-              <v-text-field outlined dense hide-details class="mb-3" v-model="itemResponse.finaciarCuotas" label="finaciarCuotas" required disabled type="number"></v-text-field>
-              <v-text-field outlined dense hide-details class="mb-3" v-model="itemResponse.seguroDesgrav" label="seguroDesgrav" required disabled type="number"></v-text-field>
-              <v-text-field outlined dense hide-details class="mb-3" v-model="itemResponse.seguroRiesgo" label="seguroRiesgo" required disabled type="number"></v-text-field>
-              <v-text-field outlined dense hide-details class="mb-3" v-model="itemResponse.interests" label="interests" required disabled type="number"></v-text-field>
-              <v-text-field outlined dense hide-details class="mb-3" v-model="itemResponse.amortizacion" label="amortizacion" required disabled type="number"></v-text-field>
+              <v-text-field outlined dense hide-details class="mb-3" v-model="itemResponse.tea" label="TEA" required disabled type="number"></v-text-field>
+              <v-text-field outlined dense hide-details class="mb-3" v-model="itemResponse.tem" label="TEM" required disabled type="number"></v-text-field>
+              <v-text-field outlined dense hide-details class="mb-3" v-model="itemResponse.numSharePerYear" label="Nº Cuotas por Año" required disabled type="number"></v-text-field>
+              <v-text-field outlined dense hide-details class="mb-3" v-model="itemResponse.totalSharePerYear" label="Nº Total de Cuotas" required disabled type="number"></v-text-field>
+              <v-text-field outlined dense hide-details class="mb-3" v-model="itemResponse.initialShare" label="Cuota Inicial" required disabled type="number"></v-text-field>
+              <v-text-field outlined dense hide-details class="mb-3" v-model="itemResponse.finalShare" label="Cuota Final" required disabled type="number"></v-text-field>
+              <v-text-field outlined dense hide-details class="mb-3" v-model="itemResponse.loanAmount" label="Monto del préstamo" required disabled type="number"></v-text-field>
+              <v-text-field outlined dense hide-details class="mb-3" v-model="itemResponse.finaciarCuotas" label="Saldo a financiar con cuotas" required disabled type="number"></v-text-field>
+              <v-text-field outlined dense hide-details class="mb-3" v-model="itemResponse.seguroDesgrav" label="% de Seguro desgrav. per." required disabled type="number"></v-text-field>
+              <v-text-field outlined dense hide-details class="mb-3" v-model="itemResponse.seguroRiesgo" label="Seguro Riesgo" required disabled type="number"></v-text-field>
+              <v-text-field outlined dense hide-details class="mb-3" v-model="itemResponse.interests" label="Intereses" required disabled type="number"></v-text-field>
             </v-col>
             
             <!-- Segunda columna -->
             <v-col cols="12" md="6">
-              <v-text-field outlined dense hide-details class="mb-3" v-model="itemResponse.desgravamen" label="desgravamen" required disabled type="number"></v-text-field>
-              <v-text-field outlined dense hide-details class="mb-3" v-model="itemResponse.seguroTodoRiesgo" label="seguroTodoRiesgo" required disabled type="number"></v-text-field>
-              <v-text-field outlined dense hide-details class="mb-3" v-model="itemResponse.ports" label="ports" required disabled type="number"></v-text-field>
-              <v-text-field outlined dense hide-details class="mb-3" v-model="itemResponse.admGastos" label="admGastos" required disabled type="number"></v-text-field>
-              <v-text-field outlined dense hide-details class="mb-3" v-model="itemResponse.discountRate" label="discountRate" required disabled type="number"></v-text-field>
-              <v-text-field outlined dense hide-details class="mb-3" v-model="itemResponse.tir" label="tir" required disabled type="number"></v-text-field>
-              <v-text-field outlined dense hide-details class="mb-3" v-model="itemResponse.tcea" label="tcea" required disabled type="number"></v-text-field>
-              <v-text-field outlined dense hide-details class="mb-3" v-model="itemResponse.van" label="van" required disabled type="number"></v-text-field>
-              <v-text-field outlined dense hide-details class="mb-3" v-model="itemResponse.tea" label="tea" required disabled type="number"></v-text-field>
-              <v-text-field outlined dense hide-details class="mb-3" v-model="itemResponse.tem" label="tem" required disabled type="number"></v-text-field>
-              <v-text-field outlined dense hide-details class="mb-3" v-model="itemResponse.gps" label="gps" required disabled type="number"></v-text-field>
+              <v-text-field outlined dense hide-details class="mb-3" v-model="itemResponse.amortizacion" label="Amortización del capital" required disabled type="number"></v-text-field>
+              <v-text-field outlined dense hide-details class="mb-3" v-model="itemResponse.desgravamen" label="Seguro de desgravamen" required disabled type="number"></v-text-field>
+              <v-text-field outlined dense hide-details class="mb-3" v-model="itemResponse.seguroTodoRiesgo" label="Seguro contra todo riesgo" required disabled type="number"></v-text-field>
+              <v-text-field outlined dense hide-details class="mb-3" v-model="itemResponse.gps" label="GPS" required disabled type="number"></v-text-field>
+              <v-text-field outlined dense hide-details class="mb-3" v-model="itemResponse.ports" label="Portes" required disabled type="number"></v-text-field>
+              <v-text-field outlined dense hide-details class="mb-3" v-model="itemResponse.admGastos" label="Gastos Adm." required disabled type="number"></v-text-field>
+              <v-text-field outlined dense hide-details class="mb-3" v-model="itemResponse.discountRate" label="Tasa de descuento" required disabled type="number"></v-text-field>
+              <v-text-field outlined dense hide-details class="mb-3" v-model="itemResponse.tir" label="TIR" required disabled type="number"></v-text-field>
+              <v-text-field outlined dense hide-details class="mb-3" v-model="itemResponse.tcea" label="TCEA" required disabled type="number"></v-text-field>
+              <v-text-field outlined dense hide-details class="mb-3" v-model="itemResponse.van" label="VAN" required disabled type="number"></v-text-field>
+
             </v-col>
 
         </v-row>
@@ -182,28 +182,28 @@ export default {
 
       idUser: '',
 
-      sellPrice: 0,
-      paymentPlan: '',
+      sellPrice: 40000,
+      paymentPlan: 'PLAN_24',
       // Agrega más variables según sea necesario para otros campos
-      interestType: '',
-      capitalizationPeriod: '',
-      initialShare: 0,
+      interestType: 'TNA',
+      capitalizationPeriod: 'DIARIA',
+      initialShare: 0.2,
       finalShare: 0,
-      interestRate: 0,
-      frequencyPayment: 0,
-      daysPerYear: 0,
-      notarialCost: 0,
-      registerCost: 0,
-      tasacion: 0,
-      studyCommission: 0,
-      activationCommission: 0,
-      ports: 0,
-      administrativeWaste: 0,
-      insuranceD: 0,
-      insuranceRisk: 0,
-      discountRate: 0,
+      interestRate: 0.13,
+      frequencyPayment: 30,
+      daysPerYear: 360,
+      notarialCost: 80,
+      registerCost: 70,
+      tasacion: 20,
+      studyCommission: 20,
+      activationCommission: 10,
+      ports: 5,
+      administrativeWaste: 6,
+      insuranceD: 0.0005,
+      insuranceRisk: 0.0045,
+      discountRate: 0.6,
       nyears: 0,
-      gps: 0,
+      gps: 20,
 
       // Opciones para el campo paymentPlan
       paymentPlanOptions: ['PLAN_36', 'PLAN_24'],

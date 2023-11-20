@@ -139,7 +139,7 @@
       </v-row>
       <v-row  class="pt-0 mt-0">
         <v-col cols="12" md="12">
-          <v-btn class="elevation-0" color="primary" @click="!showFirst">{{showFirst?'Ver':'Ocultar'}} Resultados</v-btn>
+          <v-btn class="elevation-0" color="primary" @click="showFirst = !showFirst">{{showFirst?'Ver':'Ocultar'}} Resultados</v-btn>
         </v-col>
       </v-row>
       <!-- <p class="mb-0">sellPrice: {{itemSelect.sellPrice}}</p>
@@ -220,10 +220,11 @@ export default {
 
   },
   methods: {
-    setDialog(item){
+    async setDialog(item){
       this.itemSelect = item;
       this.loadingItemSelect.id = item.id;
       this.loadingItemSelect.load = true;
+      await this.getResponseItem(item.id);
       setTimeout(() => {
         this.loadingItemSelect.id = '';
         this.loadingItemSelect.load = false;

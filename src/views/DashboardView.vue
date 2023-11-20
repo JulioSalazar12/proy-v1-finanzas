@@ -52,7 +52,7 @@
   
   <div class="d-flex justify-space-between mt-8" style="width: 80%;">
     <span class="mt-3 font-weight-black">ITEMS:</span>
-    <v-btn class="elevation-0" color="indigo" dark>Refresh</v-btn>
+    <v-btn class="elevation-0" color="indigo" dark @click="getAllItems" :loading="loadingItems">Refresh</v-btn>
   </div>
 
   <div v-if="itemsList!=[]" class="d-flex mt-3 flex-wrap justify-center" style="gap: 10px;">
@@ -79,6 +79,8 @@ export default {
   data() {
     return {
       showForm: true,
+
+      loadingItems: false,
 
       snackbar: {
         show: false,
@@ -169,8 +171,13 @@ export default {
         .then(response => {
           // Maneja la respuesta del servidor después de la solicitud POST
           console.log('Respuesta del servidor:', response.data);
+          
           // Muestra un mensaje de éxito
           this.showSnackbar('Solicitud enviada con éxito', 'success');
+
+          setTimeout(() => {
+            this.getAllItems();
+          }, 200);
         })
         .catch(error => {
           // Maneja el error después de la solicitud POST
@@ -180,8 +187,10 @@ export default {
         });
       },
       getAllItems(){
+        this.loadingItems = true;
         this.$axios.get(`/plans/users/${this.idUser}`)
-          .then(response => {
+        .then(response => {
+            this.loadingItems = false;
             // Maneja la respuesta del servidor después de la solicitud POST
             console.log('Respuesta del servidor:', response.data);
             this.itemsList = response.data;
